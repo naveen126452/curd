@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1">
+		<link href="/webjars/bootstrap/5.3.0/dist/css/bootstrap.css" rel="stylesheet"/>
+		<script type="text/javascript" src="/webjars/bootstrap/5.3.0/dist/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/webjars/jquery/3.7.0/dist/jquery.min.js"></script>
+		<title>Student</title>
+	</head>
+	<body>
+		<div align="center">
+    		<form action="#" th:object="${student}" method="post" enctype="multipart/form-data" th:action="@{/students/update/__${student.Id}__}">
+    		<div class="project-list single">
+       		   <fieldset>
+                  <h3><u>Edit Student Information</u></h3>
+                   <table><tr><td width="200" align="right">
+                   		<label for="name">Name:</label></td >
+                       <td align="left" width="300">
+                       	<input type="text" th:field="*{name}" autofocus="false"/>
+                    </td></tr>
+                    <tr><td width="200" align="right">
+                    <label for="name">Department:</label></td >
+                        <td align="left" width="300">
+                        	<input type="text" th:field="*{department}" autofocus="false"/>
+                    </td ></tr>
+                    <tr><td width="200" align="right">
+                    <label for="name">Updated By:</label></td >
+                        <td align="left" width="300">
+                        	<input type="text" th:field="*{updatedBy}" autofocus="false"/>
+                    </td ></tr>
+                    <tr><td width="200" align="right">
+                    <label for="name">Updated On:</label></td >
+                        <td align="left" width="300">
+                        	<input type="date" th:field="*{updatedOn}"  autofocus="false" />
+                    </td></tr><tr>
+                    <tr><td align="right"><label for="photo">Photo:</label></td  ></td>
+                    <td><input type="file" name="photo"/></td>
+                    <td><img th:src="@{/students/getPhoto?id=__${student.Id}__}" alt="" width="100px" height="100px"/></td></tr>
+                    	<td align="center" colspan="3">
+                    		<input class="btn btn-outline-dark" type="submit" Style="color:blue; text-decoration: underline"/>                    		
+                    		<input class="btn btn-outline-dark" type="reset"  Style="color:blue; text-decoration: underline"/>
+                    		<button class="btn btn-outline-dark" type="button">
+                    			<a th:href="@{\students\getAll}">Cancel</a>
+                    		</button>
+                       </td ></tr></table>
+                    </fieldset>
+                 </div>
+              </form>
+          </div>
+       </body>
+  </html>

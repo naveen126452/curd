@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link href="/webjars/bootstrap/5.3.0/dist/css/bootstrap.css" rel="stylesheet"/>
+<script type="text/javascript" src="/webjars/bootstrap/5.3.0/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/webjars/jquery/3.7.0/dist/jquery.min.js"></script>
+<title>spring crud app</title>
+</head>
+<body>
+<button class="btn btn-outline-dark">
+<a th:href="@{addNew}">Add Student<i class="fas fa-wrench"></i></a>
+</button>
+
+<table class="table table-stripped">
+<thead>
+<tr>
+<td>Id</td><td>Name</td><td>Department</td><td>Updated By</td><td>Updated On</td><td>Photo</td><td>Change</td><td>Remove</td>
+</tr>
+</thead>
+<tr th:each="student:${students}">
+<form action="#" method="post" th:action="@{delete/__${student.Id}__}">
+<td th:text="${student.Id}"></td>
+<td th:text="${student.name}"></td>
+<td th:text="${student.department}"></td>
+<td th:text="${student.updatedBy}"></td>
+<td th:text="${student.updatedOn}"></td>
+<td><img th:src="@{getPhoto?id=__${student.Id}__}"	alt="" width="50px" height="50px"/></td>
+<td> <button class="btn btn-outline-dark" type="button">
+         <a th:href="@{edit/__${student.Id}__}">Edit</a>
+      </button>
+</td>
+<td>
+	<button class="btn btn-outline-dark" type="submit" Style="color:blue;text-decoration:underline">
+    	Delete
+	</button>
+</td>
+</form >
+</tr>
+</table>
+</body>
