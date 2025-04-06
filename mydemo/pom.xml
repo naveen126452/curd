@@ -50,7 +50,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-<!-- lookup parent from repository -->
+<!-- lookup parent from  repository -->
 	<build>
 		<plugins>
 			<plugin>
